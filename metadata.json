@@ -1,0 +1,6 @@
+{
+  "name": "Demo Dental Clinic",
+  "description": "Premium dental healthcare clinic in Tamil Nadu, India. Modern oral care, qualified dental specialists, gentle treatments, and online appointment booking enquiries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

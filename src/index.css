@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-clinic-navy: #12345A;
+  --color-clinic-navy-dark: #0A213B;
+  --color-clinic-teal: #20B8A5;
+  --color-clinic-teal-dark: #179787;
+  --color-clinic-teal-light: #E6F8F5;
+  --color-clinic-bg-light: #F5F8FA;
+  --color-clinic-text: #243447;
+  --color-clinic-text-muted: #5D7185;
+}
+
+@layer base {
+  * {
+    border-color: #E2E8F0;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #243447;
+    background-color: #FFFFFF;
+  }
+}
+
+/* Custom focus ring styling */
+.focus-clinic:focus-visible {
+  outline: 2px solid #20B8A5;
+  outline-offset: 2px;
+}
