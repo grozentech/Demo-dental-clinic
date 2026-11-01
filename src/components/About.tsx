@@ -1,5 +1,6 @@
 import React from 'react';
 import { clinicConfig } from '../config/clinicConfig';
+import { handleImageFallback } from '../utils/imageUtils';
 import { CheckCircle2, ShieldCheck, HeartPulse, Stethoscope } from 'lucide-react';
 
 interface AboutProps {
@@ -31,11 +32,11 @@ export const About: React.FC<AboutProps> = ({ onBookClick }) => {
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white">
               <img
-                src="/src/assets/images/about_dental_consultation_1793535386639.jpg"
+                src="/images/about-consultation.jpg"
                 alt="Dentist explaining digital diagnostic treatment plan to patient in a welcoming clinic setting"
                 className="w-full h-[360px] sm:h-[420px] object-cover"
                 loading="lazy"
-                referrerPolicy="no-referrer"
+                onError={(e) => handleImageFallback(e, 'Clinic Consultation')}
               />
               <div className="p-5 bg-white border-t border-slate-100">
                 <div className="flex items-center gap-3">

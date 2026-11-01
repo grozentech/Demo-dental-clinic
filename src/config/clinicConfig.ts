@@ -14,6 +14,7 @@ export interface DoctorProfile {
   registrationNumber?: string;
   bio: string;
   imageAlt: string;
+  imageUrl: string;
   isPlaceholder: boolean;
 }
 
@@ -143,6 +144,7 @@ export const clinicConfig: ClinicConfig = {
       registrationNumber: "TNDC Reg. [Placeholder]",
       bio: "Focuses on painless microscope-assisted endodontics, tooth preservation techniques, and compassionate patient care. Update with doctor's verified biography.",
       imageAlt: "Doctor 1 portrait placeholder",
+      imageUrl: "/images/doctor-1.jpg",
       isPlaceholder: true
     },
     {
@@ -154,6 +156,7 @@ export const clinicConfig: ClinicConfig = {
       registrationNumber: "TNDC Reg. [Placeholder]",
       bio: "Specialises in fixed dental bridges, full arch restorations, and aesthetic smile rehabilitation using digital diagnostic models.",
       imageAlt: "Doctor 2 portrait placeholder",
+      imageUrl: "/images/doctor-2.jpg",
       isPlaceholder: true
     },
     {
@@ -165,6 +168,7 @@ export const clinicConfig: ClinicConfig = {
       registrationNumber: "TNDC Reg. [Placeholder]",
       bio: "Dedicated to correcting misaligned bites, teeth crowding, and contemporary clear aligner therapy for adolescents and adults.",
       imageAlt: "Doctor 3 portrait placeholder",
+      imageUrl: "/images/doctor-3.jpg",
       isPlaceholder: true
     }
   ],

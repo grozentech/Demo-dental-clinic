@@ -1,5 +1,6 @@
 import React from 'react';
 import { clinicConfig } from '../config/clinicConfig';
+import { handleImageFallback } from '../utils/imageUtils';
 import { Award, UserCheck, Calendar } from 'lucide-react';
 
 interface DoctorsProps {
@@ -38,25 +39,27 @@ export const Doctors: React.FC<DoctorsProps> = ({ onBookClick }) => {
               className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
-                {/* Doctor Image / Avatar Placeholder */}
-                <div className="relative bg-gradient-to-b from-slate-100 to-slate-200 h-60 flex flex-col items-center justify-center p-6 text-center border-b border-slate-100">
-                  <div className="w-24 h-24 rounded-full bg-white shadow-inner flex items-center justify-center text-[#12345A] border-2 border-dashed border-[#20B8A5]/60 mb-3">
-                    <UserCheck className="w-12 h-12 text-[#20B8A5]" aria-hidden="true" />
-                  </div>
+                {/* Doctor Portrait Image with Replaceable Placeholder Badging */}
+                <div className="relative h-64 overflow-hidden bg-slate-100 border-b border-slate-100">
+                  <img
+                    src={doctor.imageUrl}
+                    alt={doctor.imageAlt || doctor.name}
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    onError={(e) => handleImageFallback(e, doctor.name)}
+                  />
                   
-                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider bg-white/80 px-2.5 py-0.5 rounded-full border border-slate-200">
-                    Profile Photo Placeholder
-                  </span>
-                  <span className="text-[10px] text-slate-400 mt-1">
-                    Editable in src/config/clinicConfig.ts
-                  </span>
-
-                  {/* Placeholder Badge */}
+                  {/* Replaceable Template Badge */}
                   {doctor.isPlaceholder && (
-                    <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-bold text-slate-600 border border-slate-200 shadow-xs">
-                      Template Profile
+                    <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-lg text-[10px] font-bold text-[#12345A] border border-slate-200 shadow-sm flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#20B8A5]"></span>
+                      <span>Replaceable Profile</span>
                     </div>
                   )}
+
+                  <div className="absolute bottom-2 left-3 bg-[#12345A]/85 backdrop-blur-xs text-white text-[10px] px-2 py-0.5 rounded font-medium">
+                    Editable in clinicConfig.ts
+                  </div>
                 </div>
 
                 {/* Doctor Content */}

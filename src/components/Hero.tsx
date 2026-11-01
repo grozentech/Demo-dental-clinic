@@ -1,6 +1,7 @@
 import React from 'react';
 import { clinicConfig } from '../config/clinicConfig';
 import { generateWhatsAppLink } from '../utils/validation';
+import { handleImageFallback } from '../utils/imageUtils';
 import { Calendar, ArrowRight, MessageSquare, ShieldCheck, Sparkles, Clock, MapPin } from 'lucide-react';
 
 interface HeroProps {
@@ -90,15 +91,15 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onExploreServices }) =>
 
           </div>
 
-          {/* Right Column: Premium Dental Clinic Photograph */}
-          <div className="lg:col-span-6">
+          {/* Right Column: Premium Dental Clinic Photograph & Smiling Patient */}
+          <div className="lg:col-span-6 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-[#F5F8FA]">
               <img
-                src="/src/assets/images/hero_dental_clinic_1793535369977.jpg"
+                src="/images/hero-clinic.jpg"
                 alt="Modern, pristine operatory room at Demo Dental Clinic featuring high-tech dental chair and sterilization cabinetry"
                 className="w-full h-[360px] sm:h-[440px] lg:h-[480px] object-cover"
                 loading="eager"
-                referrerPolicy="no-referrer"
+                onError={(e) => handleImageFallback(e, 'Modern Dental Clinic')}
               />
               
               {/* Subtle architectural overlay card */}
@@ -113,6 +114,25 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onExploreServices }) =>
                 >
                   Consult Now
                 </button>
+              </div>
+            </div>
+
+            {/* Overlapping Smiling Patient Badge Card */}
+            <div className="hidden sm:flex absolute -top-5 -left-5 bg-white p-2.5 rounded-2xl shadow-xl border border-slate-200 items-center gap-3.5 max-w-xs animate-in fade-in duration-300">
+              <img
+                src="/images/hero-patient.jpg"
+                alt="Smiling patient with healthy white teeth at Demo Dental Clinic"
+                className="w-14 h-14 rounded-xl object-cover border border-slate-100"
+                loading="eager"
+                onError={(e) => handleImageFallback(e, 'Happy Patient')}
+              />
+              <div className="pr-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#20B8A5]">
+                  Patient Experience
+                </span>
+                <p className="text-xs font-bold text-[#12345A] leading-snug">
+                  Gentle, Comfortable Dental Visits
+                </p>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { clinicConfig } from '../config/clinicConfig';
+import { handleImageFallback } from '../utils/imageUtils';
 import { UserCheck, Cpu, FileSpreadsheet, Smile } from 'lucide-react';
 
 interface WhyChooseUsProps {
@@ -72,11 +73,11 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onBookClick }) => {
         <div className="rounded-2xl border border-slate-200 bg-[#F5F8FA] overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-center">
           <div className="lg:col-span-5">
             <img
-              src="/src/assets/images/clinic_comfort_facility_1793535400566.jpg"
+              src="/images/clinic-facility.jpg"
               alt="Comfortable patient waiting lounge and modern reception at Demo Dental Clinic"
               className="w-full h-64 lg:h-80 object-cover"
               loading="lazy"
-              referrerPolicy="no-referrer"
+              onError={(e) => handleImageFallback(e, 'Clinic Facility Lounge')}
             />
           </div>
 
